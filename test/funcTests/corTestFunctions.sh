@@ -27,7 +27,7 @@ SIGFOX_TEST_DIR="${SIGFOX_TEST_DIR:-/tmp/iotasigfox-bridge-test}"
 brokerStart() {
   brokerStop
 
-  "$SIGFOX_BROKER" --port "$SIGFOX_PORT" --foreground --pretty-print 2 --httpEndpoint "http://localhost:$SIGFOX_PORT" \
+  "$SIGFOX_BROKER" --port "$SIGFOX_PORT" --pretty-print 2 --httpEndpoint "http://localhost:$SIGFOX_PORT" \
                  --database ramDB --bridges "$SIGFOX_PLUGIN" --bridgeConfig "$SIGFOX_TEST_DIR/bridges.json" "$@" \
                  > "$SIGFOX_TEST_DIR/broker.log" 2>&1 &
   echo $! > "$SIGFOX_TEST_DIR/broker.pid"
